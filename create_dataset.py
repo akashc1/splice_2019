@@ -8,8 +8,8 @@ import h5py
 import numpy as np
 import sys
 import time
-from utils import *
-from constants import *
+from utils import create_datapoints
+from constants import data_dir
 
 start_time = time.time()
 
@@ -28,17 +28,15 @@ JN_START = h5f['JN_START'][:]
 JN_END = h5f['JN_END'][:]
 h5f.close()
 
-h5f2 = h5py.File(data_dir + 'dataset'
-                + '_' + sys.argv[1] + '_' + sys.argv[2]
-                + '.h5', 'w')
+h5f2 = h5py.File(data_dir + 'dataset' + '_' + sys.argv[1] + '_' + sys.argv[2] + '.h5', 'w')
 
 CHUNK_SIZE = 100
 
 for i in range(SEQ.shape[0]//CHUNK_SIZE):
     # Each dataset has CHUNK_SIZE genes
-    
+
     if (i+1) == SEQ.shape[0]//CHUNK_SIZE:
-        NEW_CHUNK_SIZE = CHUNK_SIZE + SEQ.shape[0]%CHUNK_SIZE
+        NEW_CHUNK_SIZE = CHUNK_SIZE + SEQ.shape[0] % CHUNK_SIZE
     else:
         NEW_CHUNK_SIZE = CHUNK_SIZE
 
@@ -66,6 +64,6 @@ for i in range(SEQ.shape[0]//CHUNK_SIZE):
 
 h5f2.close()
 
-print "--- %s seconds ---" % (time.time() - start_time)
+print(f"--- {time.time() - start_time} seconds ---")
 
-###############################################################################         
+###############################################################################
