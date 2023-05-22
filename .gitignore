@@ -1,0 +1,16 @@
+
+# Raw nucleotide sequences
+canonical_sequence.txt
+
+# Large H5 files
+*.h5
+
+# Vim placeholders
+*.swp
+
+# Ctags cache
+tags
+
+__pycache__/
+
+
