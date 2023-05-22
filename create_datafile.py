@@ -6,11 +6,13 @@ dataset_{}_{}.h5 will have datapoints of the form (X,Y), and can be
 understood by Keras models.'''
 ###############################################################################
 
-import numpy as np
 import re
 import sys
 import time
+
 import h5py
+import numpy as np
+
 from constants import *
 
 start_time = time.time()

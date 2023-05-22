@@ -2,14 +2,14 @@
 # This file has the functions necessary to create the SpliceAI model.
 ###############################################################################
 
-from keras.models import Model
-from keras.layers import Input
-from keras.layers.core import Activation
-from keras.layers.convolutional import Conv1D, Cropping1D
-from keras.layers.normalization import BatchNormalization
-from keras.layers.merge import add
 import keras.backend as kb
 import numpy as np
+from keras.layers import Input
+from keras.layers.convolutional import Conv1D, Cropping1D
+from keras.layers.core import Activation
+from keras.layers.merge import add
+from keras.layers.normalization import BatchNormalization
+from keras.models import Model
 
 
 def ResidualUnit(l, w, ar):

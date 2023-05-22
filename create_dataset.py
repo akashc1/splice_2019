@@ -4,13 +4,15 @@ outputs a .h5 file with datapoints of the form (X, Y), which can be understood
 by Keras models.'''
 ###############################################################################
 
-import h5py
-import numpy as np
 import sys
 import time
-from utils import create_datapoints
-from constants import data_dir
+
+import h5py
+import numpy as np
 from more_itertools import one
+
+from constants import data_dir
+from utils import create_datapoints
 
 start_time = time.time()
 

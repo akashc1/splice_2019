@@ -3,11 +3,13 @@
 datafile_{}_{}.h5 and convert them into a format usable by Keras.'''
 ###############################################################################
 
-import numpy as np
 import re
 from math import ceil
+
+import numpy as np
 from sklearn.metrics import average_precision_score
-from constants import CL_max, SL
+
+from constants import SL, CL_max
 
 assert CL_max % 2 == 0
 

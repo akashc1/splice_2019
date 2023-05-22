@@ -2,13 +2,15 @@
 # This file contains code to test the SpliceAI model.
 ###############################################################################
 
-import numpy as np
 import sys
 import time
+
 import h5py
+import numpy as np
 from keras.models import load_model
-from utils import *
+
 from constants import *
+from utils import *
 
 assert int(sys.argv[1]) in [80, 400, 2000, 10000]
 CL = int(sys.argv[1])

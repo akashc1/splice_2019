@@ -2,16 +2,18 @@
 # This file contains the code to train the SpliceAI model.
 ###############################################################################
 
-import numpy as np
 import sys
 import time
+
 import h5py
 import keras.backend as kb
+import numpy as np
 import tensorflow as tf
+
+from constants import *
+from multi_gpu import *
 from spliceai import *
 from utils import *
-from multi_gpu import *
-from constants import * 
 
 assert int(sys.argv[1]) in [80, 400, 2000, 10000]
 
