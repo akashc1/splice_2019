@@ -10,6 +10,7 @@ import sys
 import time
 from utils import create_datapoints
 from constants import data_dir
+from more_itertools import one
 
 start_time = time.time()
 
@@ -47,9 +48,15 @@ for i in range(SEQ.shape[0]//CHUNK_SIZE):
 
         idx = i*CHUNK_SIZE + j
 
-        X, Y = create_datapoints(SEQ[idx], STRAND[idx],
-                                 TX_START[idx], TX_END[idx],
-                                 JN_START[idx], JN_END[idx])
+        seq = SEQ[idx].decode()
+        strand = STRAND[idx].decode()
+        jn_start = one(JN_START[idx]).decode()
+        jn_end = one(JN_END[idx]).decode()
+        X, Y = create_datapoints(
+            seq, strand,
+            TX_START[idx], TX_END[idx],
+            jn_start, jn_end,
+        )
 
         X_batch.extend(X)
         for t in range(1):
