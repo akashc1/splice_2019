@@ -13,8 +13,8 @@ def make_parallel(model, gpu_count):
         stride = tf.concat([shape[:1]//parts, shape[1:]*0], 0)
         start = stride * idx
 
-        size = tf.concat([shape[:1]//parts, shape[1:]], 0) 
-        # Split the batch into equal parts 
+        size = tf.concat([shape[:1]//parts, shape[1:]], 0)
+        # Split the batch into equal parts
 
         return tf.slice(data, start, size)
 
@@ -36,19 +36,19 @@ def make_parallel(model, gpu_count):
                     inputs.append(slice_n)
 
                 outputs = model(inputs)
-                
+
                 if not isinstance(outputs, list):
                     outputs = [outputs]
-                
+
                 # Save all the outputs for merging back together later
                 for l in range(len(outputs)):
                     outputs_all[l].append(outputs[l])
 
     # Merge outputs on CPU
     with tf.device('/cpu:0'):
-        
+
         merged = []
         for outputs in outputs_all:
             merged.append(concatenate(outputs, axis=0))
-            
+
         return Model(inputs=model.inputs, outputs=merged)

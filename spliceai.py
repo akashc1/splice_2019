@@ -46,7 +46,7 @@ def SpliceAI(L, W, AR):
 
     for i in range(len(W)):
         conv = ResidualUnit(L, W[i], AR[i])(conv)
-        
+
         if (((i+1) % 4 == 0) or ((i+1) == len(W))):
             # Skip connections to the output after every 4 residual units
             dense = Conv1D(L, 1)(conv)
@@ -58,7 +58,7 @@ def SpliceAI(L, W, AR):
 
     for t in range(1):
         output0[t] = Conv1D(3, 1, activation='softmax')(skip)
-    
+
     model = Model(inputs=input0, outputs=output0)
 
     return model

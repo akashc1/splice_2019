@@ -178,6 +178,5 @@ for epoch_num in range(EPOCH_NUM):
             # Learning rate decay
 
 h5f.close()
-        
 ###############################################################################
 
