@@ -8,7 +8,7 @@ SL=5000
 # SL will be the output length)
 
 splice_table='canonical_dataset.txt'
-ref_genome='/home/gcpuser/splice/genomes/hg19.fa'
+ref_genome='/home/akashc/splice/data/genomes/hg19.fa'
 # Input details
 
 data_dir='./'
